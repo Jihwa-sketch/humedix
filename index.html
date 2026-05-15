@@ -143,19 +143,21 @@ body {
   border-bottom: 1px solid var(--gray-100);
 }
 .tabs-scroll {
-  overflow-x: auto;
+  overflow: visible;
   scrollbar-width: none;
   padding: 12px 16px 0;
 }
 .tabs-scroll::-webkit-scrollbar { display: none; }
 .tabs-row {
-  display: flex;
-  gap: 7px;
-  width: max-content;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
   padding-bottom: 12px;
 }
 .tab {
-  padding: 7px 16px;
+  width: 100%;
+  padding: 7px 8px;
   border-radius: 20px;
   font-size: 13px; font-weight: 600;
   cursor: pointer;
@@ -396,15 +398,22 @@ body {
   border-bottom: 0;
   z-index: 120;
 }
-.tabs-scroll { padding: 8px 22px 0; }
+.tabs-scroll {
+  overflow: visible;
+  padding: 8px 22px 0;
+}
 .tabs-row {
-  gap: 9px;
-  padding-bottom: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  padding-bottom: 12px;
 }
 .tab {
-  min-width: 60px;
-  height: 38px;
-  padding: 0 15px;
+  min-width: 0;
+  width: 100%;
+  height: 36px;
+  padding: 0 8px;
   border-radius: 19px;
   border: 1px solid #e6eaf0;
   color: #374151;
@@ -962,7 +971,7 @@ body {
   <div class="tab-menu-grid">
     <button class="tab-menu-item active" type="button" data-cat="all">All</button>
     <button class="tab-menu-item" type="button" data-cat="filler">Filler</button>
-    <button class="tab-menu-item" type="button" data-cat="injector">Injector</button>
+    <button class="tab-menu-item" type="button" data-cat="injector">Injectable</button>
     <button class="tab-menu-item" type="button" data-cat="topical">Topical</button>
     <button class="tab-menu-item" type="button" data-cat="toxin-dca">Toxin/DCA</button>
     <button class="tab-menu-item" type="button" data-cat="device">Device</button>
@@ -1024,7 +1033,7 @@ body {
     <div class="tabs-row">
       <button class="tab active" onclick="setTab(this,'all')">All</button>
       <button class="tab" onclick="setTab(this,'filler')">Filler</button>
-      <button class="tab" onclick="setTab(this,'injector')">Injector</button>
+      <button class="tab" onclick="setTab(this,'injector')">Injectable</button>
       <button class="tab" onclick="setTab(this,'topical')">Topical</button>
       <button class="tab" onclick="setTab(this,'toxin-dca')">Toxin/DCA</button>
       <button class="tab" onclick="setTab(this,'device')">Device</button>
@@ -1046,7 +1055,7 @@ body {
 <div class="content" id="mainContent">
 
   <!-- ECM -->
-  <div class="sec-head" data-cat="injector"><span class="sec-title">Injector</span><span class="sec-count">4개 제품</span></div>
+  <div class="sec-head" data-cat="injector"><span class="sec-title">Injectable</span><span class="sec-count">4개 제품</span></div>
   <div class="card" data-cat="injector" data-s="리투오 hADM ECM 스킨부스터 콜라겐 엘라스틴 세계최초">
     <span class="badge badge-green">세계 최초</span>
     <div class="card-head">
@@ -1085,7 +1094,7 @@ body {
     </div>
   </div>
 
-  <div class="sec-head" data-cat="injector"><span class="sec-title">Injector</span><span class="sec-count">4개 제품</span></div>
+  <div class="sec-head" data-cat="injector"><span class="sec-title">Injectable</span><span class="sec-count">4개 제품</span></div>
 
   <div class="card" data-cat="injector" data-s="엘라비에 밸런스 비가교 HA 스킨부스터 의료기기 리도카인">
     <span class="badge badge-green">국내 유일</span>
@@ -1113,7 +1122,7 @@ body {
     </div>
   </div>
 
-  <div class="sec-head" data-cat="injector"><span class="sec-title">Injector</span><span class="sec-count">4개 제품</span></div>
+  <div class="sec-head" data-cat="injector"><span class="sec-title">Injectable</span><span class="sec-count">4개 제품</span></div>
 
   <div class="card" data-cat="injector" data-s="에스테필 PDLLA 콜라겐 스티뮬레이터 IMEIK 럭스">
     <span class="badge badge-purple">럭스 6월 런칭</span>
@@ -1128,7 +1137,7 @@ body {
     </div>
   </div>
 
-  <div class="sec-head" data-cat="injector"><span class="sec-title">Injector</span><span class="sec-count">4개 제품</span></div>
+  <div class="sec-head" data-cat="injector"><span class="sec-title">Injectable</span><span class="sec-count">4개 제품</span></div>
 
   <div class="card" data-cat="injector" data-s="리비탈렉스 PDRN DNA 조직재생 항염증">
     <div class="card-head">
@@ -1236,9 +1245,9 @@ body {
 
   <div class="card" data-cat="device" data-s="더마샤인 프로 인젝터 니들 뎁스 조절 특허">
     <div class="card-head">
-      <div><div class="card-name">더마샤인 프로</div><span class="card-tag tag-ha">Injector</span></div>
+      <div><div class="card-name">더마샤인 프로</div><span class="card-tag tag-ha">Injectable</span></div>
     </div>
-    <div class="card-desc">인젝터 오리지널 레거시. <strong>피부 접촉 및 약력을 통한 자동 주사 시스템</strong>과 <strong>0.1mm 뎁스 조절 니들(특허)</strong>로 피부 부위별 맞춤 시술이 가능한 Injector.</div>
+    <div class="card-desc">인젝터 오리지널 레거시. <strong>피부 접촉 및 약력을 통한 자동 주사 시스템</strong>과 <strong>0.1mm 뎁스 조절 니들(특허)</strong>로 피부 부위별 맞춤 시술이 가능한 Injectable 장비.</div>
     <div class="info">
       <div class="info-row"><span class="info-k">제조/판매</span><span class="info-v">HUMEDIX · Huons Meditec</span></div>
       <div class="info-row"><span class="info-k">시술</span><span class="info-v">마이크로 니들과 음압 기술을 결합해 약물을 피부 속에 직접 전달. 한 번에 9개의 바늘이 들어가며 술자의 컨디션·숙련도와 관계없이 동일한 기술 구현</span></div>
@@ -1250,9 +1259,9 @@ body {
   <div class="card" data-cat="device" data-s="더마샤인 듀오 RF 고주파 인젝터 하이브리드">
     <span class="badge badge-purple">26년 출시</span>
     <div class="card-head">
-      <div><div class="card-name">더마샤인 듀오</div><span class="card-tag tag-pdlla">Injector + RF</span></div>
+      <div><div class="card-name">더마샤인 듀오</div><span class="card-tag tag-pdlla">Injectable + RF</span></div>
     </div>
-    <div class="card-desc"><strong>통증 없는 니들 RF</strong>, 스킨부스터 부스팅에 최적화된 파라미터. 정밀한 의약품 주입(Injector) 기능과 피부 탄력을 개선하는 니들 고주파(RF) 리프팅 기능이 하나로 결합된 하이브리드 의료기기.</div>
+    <div class="card-desc"><strong>통증 없는 니들 RF</strong>, 스킨부스터 부스팅에 최적화된 파라미터. 정밀한 의약품 주입(Injectable) 기능과 피부 탄력을 개선하는 니들 고주파(RF) 리프팅 기능이 하나로 결합된 하이브리드 의료기기.</div>
     <div class="info">
       <div class="info-row"><span class="info-k">제조/판매</span><span class="info-v">HUMEDIX · Huons Meditec</span></div>
       <div class="info-row"><span class="info-k">해외</span><span class="info-v">현재 해외 판매 없음</span></div>
@@ -1266,7 +1275,7 @@ body {
     </div>
     <div class="card-desc"><strong>세계 최초 곡선형 HIFU 리프팅 장비</strong>. 곡면형 카트리지로 안면 굴곡에 맞게 밀착. DEEP (SMAS층) + BOOSTER (진피층) 모드 지원.</div>
     <div class="info">
-      <div class="info-row"><span class="info-k">제조</span><span class="info-v">HUMEDIX + Newpong</span></div>
+      <div class="info-row"><span class="info-k">제조</span><span class="info-v">Huons Meditec, Newpong</span></div>
     </div>
   </div>
 
@@ -1378,7 +1387,7 @@ body {
   const tabsRow = document.querySelector('.tabs-row');
   if (tabsRow) {
     const tabs = [...tabsRow.querySelectorAll('.tab')];
-    const wanted = ['All', 'Filler', 'Injector', 'Topical', 'Toxin/DCA', 'Device', 'Next'];
+    const wanted = ['All', 'Filler', 'Injectable', 'Topical', 'Toxin/DCA', 'Device', 'Next'];
     wanted.forEach(label => {
       const tab = tabs.find(t => t.textContent.trim() === label);
       if (tab) tabsRow.appendChild(tab);
@@ -1420,7 +1429,7 @@ body {
     '아르케': '버섯 유래 비동물성 저분자 키토산<br>피부와 모발에 적용 가능한 창상피복재',
     '이즈먼트': '식물성 엑소좀 기반 토피컬 솔루션<br>미백, 모공, 탄력 케어',
     '더마샤인 프로': '인젝터 오리지널 레거시<br>자동 주사 시스템과 0.1mm 뎁스 조절 니들',
-    '더마샤인 듀오': '통증 없는 니들 RF<br>Injector + RF 하이브리드 의료기기',
+    '더마샤인 듀오': '통증 없는 니들 RF<br>Injectable + RF 하이브리드 의료기기',
     '린커브': '세계 최초 곡선형 HIFU 리프팅 장비<br>SMAS층과 진피층 모드 지원',
     'INFINA': '원심분리부터 KIT, LED까지 3-Step Full System<br>프리미엄 줄기세포 솔루션',
     'AET Jet': '니들리스 인젝터 개발 진행 중<br>Consumer + HCP 대상 라인업 예정',
